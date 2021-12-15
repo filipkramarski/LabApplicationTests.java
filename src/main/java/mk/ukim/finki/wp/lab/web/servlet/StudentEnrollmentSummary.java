@@ -43,8 +43,6 @@ public class StudentEnrollmentSummary extends HttpServlet {
         String course = this.courseService.findAll().stream().filter(c -> c.getCourseId().toString()
                 .equals(courseId)).findFirst().get().getName();
         req.getSession().setAttribute("name", name);
-        //this.courseService.addStudentInCourse(name, Long.parseLong(courseId));
-        //context.setVariable("AddStudentInCourse",courseService.addStudentInCourse(name, Long.parseLong(courseId)));
         context.setVariable("course",course);
         this.springTemplateEngine.process("studentsInCourse.html",context,resp.getWriter());
     }
