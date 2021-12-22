@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CourseList", urlPatterns = "/listCourses")
+@WebServlet(name = "CourseList", urlPatterns = "/listCourses/cour")
 public class CourseListServlet extends HttpServlet {
 
     CourseService courseService;
@@ -22,10 +22,10 @@ public class CourseListServlet extends HttpServlet {
         this.springTemplateEngine = springTemplateEngine;
     }
 
-    @Override
-    protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    //@Override
+  /*  protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("listCourses", this.courseService.findAll());
         this.springTemplateEngine.process("listCourses.html",context,resp.getWriter());
-    }
+    }*/
 }

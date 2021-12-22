@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public class TeacherRepository {
 
-    public List<Teacher> findAll(){ return DataHolder.teacher; }
+    public List<Teacher> findAll(){ return DataHolder.teachers; }
 
 }

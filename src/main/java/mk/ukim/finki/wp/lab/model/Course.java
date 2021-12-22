@@ -1,19 +1,19 @@
 package mk.ukim.finki.wp.lab.model;
 
-import com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer;
 import lombok.Data;
+import lombok.Getter;
 
-import java.util.List;
 @Data
+@Getter
 public class Course {
 
     private Long courseId;
     private String name;
     private String description;
-    private List<Student> students;
-    private List<Teacher> teacher;
+    private Student students;
+    private Teacher teacher;
 
-    public Course (Long courseId, String name, String description, List<Student> students, List<Teacher> teacher) {
+    public Course (String name, String description, Student student, Teacher teacher) {
         this.courseId = (long) (Math.random() * 1000);
         this.name = name;
         this.description = description;

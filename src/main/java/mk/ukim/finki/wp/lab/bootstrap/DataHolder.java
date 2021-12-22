@@ -1,5 +1,6 @@
 package mk.ukim.finki.wp.lab.bootstrap;
 
+import lombok.Getter;
 import mk.ukim.finki.wp.lab.model.Course;
 import mk.ukim.finki.wp.lab.model.Student;
 import mk.ukim.finki.wp.lab.model.Teacher;
@@ -10,25 +11,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Getter
 public class DataHolder {
 
     public static List<Student> students = new ArrayList<>();
     public static List<Course> courses = new ArrayList<>(10);
-    public static List<Teacher> teacher = new ArrayList<>();
+    public static List<Teacher> teachers = new ArrayList<>();
 
     @PostConstruct
     public void init() {
         students.add(new Student("FilipKramarski","Zelka","Filip","Kramarski"));
-        students.add(new Student("AnaTodorovska","Ana","Ana","Todorovska"));
 
-        courses.add(new Course(1233331323L, "APS","II",students, teacher));
-        courses.add(new Course(1232323323L, "VP","III",students, teacher));
-        courses.add(new Course(1232332223L, "SI","III",students, teacher));
+        Student student = new Student("AnaTodorovska","Ana","Ana","Todorovska");
+        Teacher teacher = new Teacher("Ana","Ananas");
+        teachers.add(teacher);
+        courses.add(new Course("APS","II",student, teacher));
+        courses.add(new Course("VP","III",student, teacher));
+        courses.add(new Course("SI","III",student, teacher));
 
-        teacher.add(new Teacher(1234212125L,"Filip","Filipov"));
-        teacher.add(new Teacher(1234212125L,"Ana","DeArmas"));
-        teacher.add(new Teacher(1234212125L,"Ana","Marija"));
-        teacher.add(new Teacher(1234552125L,"Marija","Ana"));
-        teacher.add(new Teacher(1234442125L,"Stefan","Stefanov"));
+        teachers.add(new Teacher("Filip","Filipov"));
+        teachers.add(new Teacher("Ana","DeArmas"));
+        teachers.add(new Teacher("Ana","Marija"));
+        teachers.add(new Teacher("Marija","Ana"));
+        teachers.add(new Teacher("Stefan","Stefanov"));
     }
 }

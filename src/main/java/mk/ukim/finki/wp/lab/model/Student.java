@@ -1,8 +1,10 @@
 package mk.ukim.finki.wp.lab.model;
 
 import lombok.Data;
+import lombok.Getter;
 
 @Data
+@Getter
 public class Student {
     private String username;
     private String password;
@@ -14,5 +16,8 @@ public class Student {
         this.password = password;
         this.name = name;
         this.surname = surname;
+    }
+
+    public void add(Student student) {
     }
 }
