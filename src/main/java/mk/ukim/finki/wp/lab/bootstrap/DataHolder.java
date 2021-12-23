@@ -20,9 +20,9 @@ public class DataHolder {
 
     @PostConstruct
     public void init() {
-        students.add(new Student("FilipKramarski","Zelka","Filip","Kramarski"));
+        students.add(new Student("FilipKramarski","Fil","Filip","Kramarski"));
 
-        Student student = new Student("AnaTodorovska","Ana","Ana","Todorovska");
+        Student student = new Student("SandraKramarska","Sandra","Sandra","Kramarska");
         Teacher teacher = new Teacher("Ana","Ananas");
         teachers.add(teacher);
         courses.add(new Course("APS","II",student, teacher));
