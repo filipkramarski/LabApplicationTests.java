@@ -3,6 +3,7 @@ package mk.ukim.finki.wp.lab.service.Impl;
 import mk.ukim.finki.wp.lab.model.Course;
 import mk.ukim.finki.wp.lab.model.Student;
 import mk.ukim.finki.wp.lab.model.Teacher;
+import mk.ukim.finki.wp.lab.model.exceptions.TeacherNotFoundException;
 import mk.ukim.finki.wp.lab.repository.CourseRepository;
 import mk.ukim.finki.wp.lab.repository.StudentRepository;
 import mk.ukim.finki.wp.lab.repository.TeacherRepository;
@@ -52,7 +53,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public Optional<Course> save(String name, String description, Long teacherId) {
 
-        Teacher teacher = null;
+        Teacher teacher = this.teacherRepository.findById(teacherId).orElseThrow(()->new TeacherNotFoundException(teacherId));
         return this.courseRepository.save(name,description,teacher);
     }
 
